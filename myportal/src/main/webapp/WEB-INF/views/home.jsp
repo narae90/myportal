@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Welcome Spring</h1>
+	<h1>Welcome Home</h1>
 	<p>${ message }</p>
 
 </body>

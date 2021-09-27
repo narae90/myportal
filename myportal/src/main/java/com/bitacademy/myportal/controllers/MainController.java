@@ -15,7 +15,7 @@ public class MainController {
 		
 		// 객체 추가: 서블릿에서 addAttribute의 역할
 		mav.addObject("message", // 키
-						"Welcome," + name); // 값
+						"Hello," + name); // 값
 		
 		// 뷰파일을 연결 : 서블릿에서 RequestDispather로 포워드한 것과 비슷
 		mav.setViewName("/WEB-INF/views/home.jsp");
