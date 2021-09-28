@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>My Portal</title>
 </head>
 <body>
 	<h1>Welcome Home</h1>
-	<p>${ message }</p>
+	<p>Spring Framework로 만든 홈페이지입니다.</p>
 
 </body>
 </html>

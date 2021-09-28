@@ -30,7 +30,7 @@
    
  
   
-    <!--  Filter 설정 -->
+    <!--  인코딩 Filter 설정 -->
   <filter>
   	<filter-name>encodingFilter</filter-name>
   	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
