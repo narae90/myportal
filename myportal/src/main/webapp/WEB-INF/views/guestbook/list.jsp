@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html>
@@ -10,7 +11,7 @@
 <body>
   
 	<h1>방명록</h1>
-	<form action="" 
+	<form action="<c:url value="/guestbook/write" />" method="POST">
 			method="POST">
 	<table border=1 width=500>
 		<tr>
@@ -28,22 +29,24 @@
 	<br/>
 
 	<!-- 게시물 Loop -->
-	<table width=510 border=1>
-		<tr>
-			<td>[]</td>
-			<td></td>
-			<td></td>
-			<td>
-				<!-- 수정 -->
-				<a href="">
-					삭제
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<td colspan=4>게시물 내용</td>
-		</tr>
-	</table>
+	<c:forEach items="${list }" var="vo">
+		<table width=510 border=1>
+			<tr>
+				<td>[${vo.no }]</td>
+				<td>${vo.name }</td>
+				<td>${vo.regDate }</td>
+				<td>
+					<!-- 수정 -->
+					<a href="<c:url value="/guestbook/delete/${vo.no }" />">
+						삭제
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=4>${vo.content }</td>
+			</tr>
+		</table>
+	</c:forEach>
     
 </body>
 </html>
