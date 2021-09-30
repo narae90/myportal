@@ -19,7 +19,7 @@ public class GuestbookServiceImpl implements GuestbookService {
 		List<GuestbookVo> list = guestbookDaoImpl.selectAll();
 		return list;
 	}
-
+	
 	@Transactional
 	@Override
 	public boolean writeMessage(GuestbookVo vo) {

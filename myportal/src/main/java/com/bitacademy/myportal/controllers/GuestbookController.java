@@ -27,32 +27,31 @@ public class GuestbookController {
 		return "guestbook/list";
 	}
 	
-	
 	@RequestMapping(value="/write", method=RequestMethod.POST)
 	public String write(@ModelAttribute GuestbookVo vo) {
-		System.out.println("FORM DAT:" + vo);
+		System.out.println("FORM DATA:" + vo);
 		
 		boolean bSuccess = guestbookServiceImpl.writeMessage(vo);
-		System.out.println("방명록 삽입 성공?" + bSuccess);
+		System.out.println("방명록 삽입 성공? " + bSuccess);
 		
-		// 리다이렉트 
+		//	리다이렉트
 		return "redirect:/guestbook";
 	}
 	
 	@RequestMapping(value="/delete/{no}", method=RequestMethod.GET)
-	public String delete(@PathVariable("no")Long no, Model model) {
+	public String delete(@PathVariable("no") Long no, Model model) {
 		model.addAttribute("no", no);
 		return "guestbook/deleteform";
 	}
+	
 	@RequestMapping(value="/delete", method=RequestMethod.POST)
 	public String delete(@ModelAttribute GuestbookVo vo) {
-		boolean bSuccess =guestbookServiceImpl.deleteMessage(vo);
+		boolean bSuccess = guestbookServiceImpl.deleteMessage(vo);
 		
-		if(bSuccess) {	// 삭제 성공
+		if (bSuccess) {	//	삭제 성공
 			return "redirect:/guestbook";
 		}
-		// 실패시
+		//	실패시
 		return "redirect:/guestbook/delete/" + vo.getNo();
 	}
-	
 }

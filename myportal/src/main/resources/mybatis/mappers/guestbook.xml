@@ -16,7 +16,7 @@
 	</select>
 	
 	<insert id="insert" parameterType="guestbookVo">
-	INSERT into guestbook
+	INSERT INTO guestbook
 		(no, name, password, content)
 	VALUES (seq_guestbook_no.nextval, #{name}, #{password}, #{content})
 	
@@ -24,6 +24,6 @@
 	
 	<delete id="delete" parameterType="guestbookVo">
 	DELETE FROM guestbook
-	WHERE no=#{no} and password=#{password}
+	WHERE no=#{no} AND password=#{password}
 	</delete>
 </mapper>

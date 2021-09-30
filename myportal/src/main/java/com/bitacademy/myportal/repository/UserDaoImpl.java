@@ -17,7 +17,8 @@ public class UserDaoImpl implements UserDao {
 		int count = 0;
 		count = sqlSession.insert("users.insert", vo);
 		
-		// TODO: 예외처리
+		//	TODO: 예외처리 필요
+		
 		return count;
 	}
 
@@ -32,9 +33,9 @@ public class UserDaoImpl implements UserDao {
 		// Parameter 객체가 없을 때 -> map 사용
 		Map<String, String> userMap = new HashMap<>();
 		userMap.put("email", email);
-		userMap.put(password, password);
+		userMap.put("password", password);
 		
-		UserVo vo = sqlSession.selectOne("users.selectUserByEamilAndPassword", userMap);
+		UserVo vo = sqlSession.selectOne("users.selectUserByEmailAndPassword", userMap);
 		return vo;
 	}
 

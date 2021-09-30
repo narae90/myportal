@@ -6,9 +6,9 @@ import org.springframework.stereotype.Service;
 import com.bitacademy.myportal.repository.UserDao;
 import com.bitacademy.myportal.repository.UserVo;
 
+
 @Service
 public class UserServiceImpl implements UserService {
-
 	@Autowired
 	private UserDao userDaoImpl;
 	

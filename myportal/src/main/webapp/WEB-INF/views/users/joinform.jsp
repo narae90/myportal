@@ -15,7 +15,8 @@
 		action="<c:url value="/users/join" />"
 		method="POST"
 		>
-		<input type="hidden" name="a" value="join">
+		
+		<!-- input type="hidden" name="a" value="join" -->
 		
 		<label for="name">이름</label>
 		<input name="name" type="text" placeholder="이름을 입력하십시오"><br>
