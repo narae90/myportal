@@ -2,12 +2,14 @@
 <!DOCTYPE configuration
 	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-config.dtd">
-<!-- MYBatis 설정 파일 -->
+<!-- MyBatis 설정 파일 -->
 <configuration>
+	<!-- 객체 별칭 -->
 	<typeAliases>
+		<typeAlias alias="guestbookVo" type="com.bitacademy.myportal.repository.GuestbookVo" />
 	</typeAliases>
 	<!-- 매핑 설정 -->
 	<mappers>
+		<mapper resource="mybatis/mappers/guestbook.xml" />
 	</mappers>
 </configuration>
-	
