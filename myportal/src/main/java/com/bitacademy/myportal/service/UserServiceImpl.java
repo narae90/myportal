@@ -7,7 +7,6 @@ import com.bitacademy.myportal.exception.UserDaoException;
 import com.bitacademy.myportal.repository.UserDao;
 import com.bitacademy.myportal.repository.UserVo;
 
-
 @Service
 public class UserServiceImpl implements UserService {
 	@Autowired
@@ -27,8 +26,8 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public UserVo getUser(String email) {
-		// TODO Auto-generated method stub
-		return null;
+		UserVo userVo = userDaoImpl.selectUser(email);
+		return userVo;
 	}
 
 }
