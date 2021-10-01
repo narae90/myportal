@@ -28,6 +28,29 @@
 	WHERE b.user_no = u.no
 	</select>
 	
+		<!-- 게시물 보기 -->
+	<select id="getContent" parameterType="long" resultType="boardVo">
+	SELECT 
+		b.no, 
+		title, 
+		content, 
+		hit, 
+		reg_date as regDate,
+		user_no as userNo,
+		name as userName
+	FROM board b, users u
+	WHERE b.user_no = u.no
+	</select>
+	
+	<!-- 게시물 hit 수 증가 쿼리 -->
+	<update id="increaseHitCount" parameterType="long">
+		<![CDATA[
+		UPDATE board
+		SET hit = hit + 1
+		WHERE no = #{value}	
+		]]>
+	</update>
+	
 	
 	<delete id="delete" parameterType="boardVo">
 	DELETE FROM board

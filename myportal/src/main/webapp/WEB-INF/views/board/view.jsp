@@ -1,13 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!DOCTYPE html>
 <html>
 <head>
 	<title>My Homepage</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	<link href="/myportal/css/board.css" rel="stylesheet" type="text/css">
+	<script 
+	type="text/javascript" 
+	src="<c:url value="/javascript/jquery/jquery-3.6.0.js" />"></script>
+	<link rel="stylesheet" 
+		href="<c:url value="/css/board.css" />" />	
 </head>
 <body>
+  	<div id="container">
+		<jsp:include page="/WEB-INF/views/includes/header.jsp" />
+		<jsp:include page="/WEB-INF/views/includes/navigation.jsp" />
+		<div id="wrapper">
+			<div id="content">
 	
 	<table border="1" width="640">
 		<tr>
@@ -18,25 +29,29 @@
 		</tr>
 		<tr>
 			<td>제목</td>
-			<td>제목입니다.</td>
+			<td>${vo.title }</td>
 		</tr>
 		<tr>
 			<td>내용</td>
 			<td>
 				<div>
-					내용 1입니다.<br>
-					내용 2입니다.<br>
-					내용 3입니다.
+					${vo.content }
 				</div>
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2">
-				<a href="">글목록</a>
+				<a href="<c:url value="/board" />">글목록</a>
 				<a href="">글수정</a>
 			</td>
 		</tr>
 	</table>
+	
+	    </div>
+	</div>
+		<%@ include file="/WEB-INF/views/includes/footer.jsp" %>
+	</div>
+				
 
 </body>
 </html>
