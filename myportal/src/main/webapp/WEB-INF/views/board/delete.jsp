@@ -10,11 +10,8 @@
 <body>
 	<form method="post"
 		action="<c:url value="/board/delete"/>">
-		<input type='hidden' name="no" value="${no }"> 
-		<label
-			for="password">비밀번호</label>
-		<input type="password" name="password">
-		<input type="submit" value="확인"><br> 
+		<input type='hidden' name="no" value="${no}"> 
+
 		<a href="<c:url value="board"/>">목록 보기</a>
 	</form>
 </body>

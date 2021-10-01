@@ -15,12 +15,6 @@
 	)
 	</insert>
 	
-	
-	<delete id="delete" parameterType="boardVo">
-	DELETE FROM board
-	WHERE no=#{no} AND password=#{password}	
-	</delete>
-	
 	<select id="selectAll" resultType="boardVo">
 	SELECT 
 	    b.no,
@@ -33,4 +27,12 @@
 	FROM board b, users u
 	WHERE b.user_no = u.no
 	</select>
+	
+	
+	<delete id="delete" parameterType="boardVo">
+	DELETE FROM board
+	WHERE no= #{no} 
+	</delete>
+	
+
 </mapper>

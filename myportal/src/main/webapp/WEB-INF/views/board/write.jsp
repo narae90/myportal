@@ -19,6 +19,7 @@
 				<td>제목</td>
 				<td><input type="text" name="title" value=""></td>
 			</tr>
+
 			<tr>
 				<td>내용</td>
 				<td>
