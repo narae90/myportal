@@ -32,7 +32,7 @@ public class BoardController {
 	//	게시물 작성 폼
 	@RequestMapping(value="/write", method=RequestMethod.GET)
 	public String writeForm(HttpSession session) {
-		//	로그인 사용자 확인
+		//	로그인 사용자 확인 로그인 안한 사용자는 쓰기 기능 제한
 		UserVo authUser = (UserVo)session.getAttribute("authUser");
 		if (authUser == null) {
 			System.err.println("로그인 사용자가 아님!");
@@ -59,8 +59,8 @@ public class BoardController {
 	}
 	
 	
-	@RequestMapping(value="/view")
-	public String view(Long no, Model model) {
+	@RequestMapping("/{no}")
+	public String view(@PathVariable Long no,Model model) {
 		BoardVo vo = boardServiceImpl.getContent(no);
 		model.addAttribute("vo", vo);
 		return "board/view";

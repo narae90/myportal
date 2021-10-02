@@ -7,5 +7,5 @@ public interface BoardDao {
 	public int insert(BoardVo boardVo);	//	게시물 작성 INSERT
 	public BoardVo getContent(Long no);	//	게시물 조회 SELECT
 	public int update(BoardVo boardVo);	//	게시물 수정 UPDATE
-	public int delete(BoardVo vo);			//	게시물 삭제 DELETE
+	public int delete(BoardVo boardVo);			//	게시물 삭제 DELETE
 }
