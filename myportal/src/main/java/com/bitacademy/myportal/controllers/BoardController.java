@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bitacademy.myportal.repository.BoardVo;
+import com.bitacademy.myportal.repository.GuestbookVo;
 import com.bitacademy.myportal.repository.UserVo;
 import com.bitacademy.myportal.service.BoardService;
 
@@ -59,11 +60,25 @@ public class BoardController {
 	}
 	
 	
-	@RequestMapping("/{no}")
+	// 내용보기?
+	@RequestMapping(value="/view", method=RequestMethod.GET)
 	public String view(@PathVariable Long no,Model model) {
 		BoardVo vo = boardServiceImpl.getContent(no);
 		model.addAttribute("vo", vo);
-		return "board/view";
+		return "/board/view";
+	}
+	
+	
+	// 삭제하기
+	@RequestMapping(value="/delete", method=RequestMethod.POST)
+	public String delete(@ModelAttribute BoardVo vo) {
+		boolean bSuccess = boardServiceImpl.delete(vo);
+		
+		if (bSuccess) {	//	삭제 성공
+			return "redirect:/board/list";
+		}
+		//	실패시
+		return "redirect:/board/delete/" + vo.getNo();
 	}
 	
 	
