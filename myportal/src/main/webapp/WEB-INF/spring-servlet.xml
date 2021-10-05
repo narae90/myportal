@@ -63,4 +63,12 @@
 			<bean class="com.bitacademy.myportal.interceptors.AuthInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
+	
+	
+	<!-- Message Source: 반드시 bean id를 messageSource로 설정해야 -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames" value="messages/messages_ko" />
+		<property name="defaultEncoding" value="UTF-8" />	
+	</bean>
 </beans>
