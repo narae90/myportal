@@ -23,7 +23,7 @@
     </plugins>
   </build>
   
-<!-- Oracle 드라이버 저장소 -->
+  <!-- Oracle 드라이버 저장소 -->
   <repositories>
   	<repository>
 		<id>oracle</id>
@@ -31,7 +31,6 @@
 	 	<url>http://www.datanucleus.org/downloads/maven2/</url>
 	</repository>
   </repositories>
-  
   
   <!-- 의존성 목록 -->
   <dependencies>
@@ -41,6 +40,13 @@
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-context</artifactId>
 	    <version>${org.springframework-version}</version>
+	    <!-- Logger 교체를 위해 기본 Logger를 빼준다 -->
+	    <exclusions>
+	    	<exclusion>
+	    		<groupId>commons-logging</groupId>
+	    		<artifactId>commons-logging</artifactId>
+	    	</exclusion>
+	    </exclusions>
 	</dependency>
   	
   	<!-- Spring Web -->
@@ -56,22 +62,23 @@
 	    <artifactId>spring-webmvc</artifactId>
 	    <version>${org.springframework-version}</version>
 	</dependency>
-
-	<!--JSTL -->
-   <dependency>
-   <groupId>jstl</groupId>
-   <artifactId>jstl</artifactId>
-   <version>1.2</version>
-  </dependency>
-  
-  <!-- Spring JDBC -->
-  <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+	
+	<!-- JSTL -->
+	<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>1.2</version>
+	</dependency>
+	
+	<!-- Spring JDBC -->
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-jdbc</artifactId>
 	    <version>${org.springframework-version}</version>
 	</dependency>
-	  
+	
 	<!-- Oracle Driver -->
 	<dependency>
 		<groupId>oracle</groupId>
@@ -86,17 +93,15 @@
 	    <artifactId>mybatis</artifactId>
 	    <version>3.5.7</version>
 	</dependency>
-	
-		
-	<!-- MyBatis Spring -->
+
+	<!-- MyBatis Spring -->		
 	<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
 	<dependency>
 	    <groupId>org.mybatis</groupId>
 	    <artifactId>mybatis-spring</artifactId>
 	    <version>2.0.6</version>
 	</dependency>
-	
-	
+		
 	<!-- Jackson -->
 	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 	<dependency>
@@ -105,11 +110,23 @@
 	    <version>2.12.5</version>
 	</dependency>
 	
- 
-  
-  
-  </dependencies>  
-  
+	<!-- JCL-over-SLF4J -->
+	<!-- https://mvnrepository.com/artifact/org.slf4j/jcl-over-slf4j -->
+	<dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>jcl-over-slf4j</artifactId>
+	    <version>1.7.32</version>
+	</dependency>
+	
+	<!-- Logback -->
+	<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+	<dependency>
+	    <groupId>ch.qos.logback</groupId>
+	    <artifactId>logback-classic</artifactId>
+	    <version>1.2.6</version>
+	    <!-- scope>test</scope -->
+	</dependency>
+		
+		
+  </dependencies>
 </project>
-
-
