@@ -8,10 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<h1>업로드 된 이미지</h1>
-	<img alt="" src="" />
+	<h1>업로드된 이미지</h1>
+	<img src="<c:url value="/upload/${urlImage }" />" />
 	<a href="<c:url value="/fileupload/form" />">다시 업로드</a>
-
 </body>
 </html>
