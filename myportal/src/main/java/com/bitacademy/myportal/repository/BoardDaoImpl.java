@@ -26,7 +26,7 @@ public class BoardDaoImpl implements BoardDao {
 	@Override
 	public BoardVo getContent(Long no) {
 		BoardVo vo = sqlSession.selectOne("board.getContent",no);
-		sqlSession.update("board.increaseHitCount",no);
+//		sqlSession.update("board.increaseHitCount",no);
 		return vo;
 	}
 
