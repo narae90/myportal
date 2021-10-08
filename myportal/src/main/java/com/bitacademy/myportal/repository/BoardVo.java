@@ -3,12 +3,12 @@ package com.bitacademy.myportal.repository;
 import java.util.Date;
 
 public class BoardVo {
-	private Long no;	//PK
+	private Long no; // PK
 	private String title;
 	private String content;
 	private Long hit;	// 조회수
 	private Date regDate;
-	private Long userNo;	// user테이블의 PK (Foreign Key)
+	private Long userNo; // User테이블의 PK (Foreign Key)
 	private String userName;
 	
 	public BoardVo() {
@@ -21,9 +21,7 @@ public class BoardVo {
 		this.userNo = userNo;
 	}
 	
-	
-	// 
-	public BoardVo(Long no, String title, Long hit, Date regDate, Long userNo, String userName ) {
+	public BoardVo(Long no, String title, Long hit, Date regDate, Long userNo, String userName) {
 		this.no = no;
 		this.title = title;
 		this.hit = hit;
@@ -33,12 +31,10 @@ public class BoardVo {
 	}
 	
 	// 전체 생성자
-	public BoardVo(Long no, String title, String content, Long hit, Date regDate, Long userNo, String userName ) {
-		this(no,title, hit, regDate, userNo, userName);
-		this.content = content;
-		
-	}
-	
+		public BoardVo(Long no, String title, String content, Long hit, Date regDate, Long userNo, String userName) {
+			this(no, title, hit, regDate, userNo, userName);
+			this.content = content;
+		}
 
 	public Long getNo() {
 		return no;
@@ -96,7 +92,6 @@ public class BoardVo {
 		this.userName = userName;
 	}
 
-	
 	@Override
 	public String toString() {
 		return "BoardVo [no=" + no + ", title=" + title + ", content=" + content + ", hit=" + hit + ", regDate="
@@ -104,16 +99,4 @@ public class BoardVo {
 	}
 	
 	
-	
-	
 }
-
-
-
-
-
-
-
-
-
-

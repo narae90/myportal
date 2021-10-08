@@ -60,36 +60,48 @@ public class BoardController {
 	}
 	
 	
-	// 게시글 상세내용보기
-	@RequestMapping(value="/view", method=RequestMethod.GET)
-	public void getCount(@PathVariable Long no,Model model) {
-		BoardVo vo = boardServiceImpl.getContent(no);
+//	// 게시글 상세내용보기
+//	@RequestMapping(value="/view", method=RequestMethod.GET)
+//	public void getCount(@PathVariable Long no,Model model) {
+//		BoardVo vo = boardServiceImpl.getContent(no);
+//		model.addAttribute("vo", vo);
+////		return "/board/list";
+//	}
+	
+	
+	@RequestMapping("/view/{no}")
+	public String view(@PathVariable Long no, Model model) {
+		boardServiceImpl.updateHit(no);
+		BoardVo vo = boardServiceImpl.view(no);
 		model.addAttribute("vo", vo);
-//		return "/board/list";
-	}
-	
-	// 게시글 수정 페이지로 이동
-	@RequestMapping(value = "/modify", method = RequestMethod.GET)
-	public void getupdate(@RequestParam("no") BoardVo boardVo)  {
-		boardServiceImpl.update(boardVo);  
 		
+		return "/board/view";
 	}
 	
-	// 게시글 수정
-	@RequestMapping(value="/modify", method=RequestMethod.POST)
-	public String postupdate(@ModelAttribute BoardVo boardVo) {
+	// 게시글 수정하기
+	@RequestMapping(value = "/update/{no}", method=RequestMethod.GET)
+	public String updateform(@PathVariable Long no, Model model) {
+		BoardVo vo = boardServiceImpl.view(no);
+		model.addAttribute("vo", vo);
+		return "board/update";
+	}
+	
+	// 게시물 수정
+	@RequestMapping(value="/update/{no}", method=RequestMethod.POST)
+	public String update(@ModelAttribute BoardVo boardVo) {
+		System.out.println(boardVo.toString());
 		boardServiceImpl.update(boardVo);
+		return "redirect:/board";
+	}
+	
+	// 삭제하기
+	@RequestMapping(value="/delete/{no}", method=RequestMethod.GET)
+	public String delete(@PathVariable Long no) {
+		boardServiceImpl.delete(no);
+		System.out.print(no);
 		return "redirect:/board/list";
 	}
 	
-	
-	
-	// 삭제하기
-	@RequestMapping(value="/delete")
-	public String delete(@RequestParam BoardVo boardVo) {
-		boardServiceImpl.delete(boardVo);
-		return "redirect:/list";
-	}
 	
 	// 삭제하기 2
 //	@RequestMapping(value="/delete", method=RequestMethod.POST)

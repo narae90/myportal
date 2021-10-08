@@ -5,8 +5,10 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
 @Repository
 public class BoardDaoImpl implements BoardDao {
+
 	@Autowired
 	private SqlSession sqlSession;
 	
@@ -18,29 +20,30 @@ public class BoardDaoImpl implements BoardDao {
 
 	@Override
 	public int insert(BoardVo boardVo) {
-		//	TODO: 예외처리
+		// TODO: 예외처리
 		int insertedCount = sqlSession.insert("board.insert", boardVo);
 		return insertedCount;
 	}
 
 	@Override
-	public BoardVo getContent(Long no) {
-		BoardVo vo = sqlSession.selectOne("board.getContent",no);
-//		sqlSession.update("board.increaseHitCount",no);
+	public BoardVo view(Long no) {
+		BoardVo vo = sqlSession.selectOne("board.selectOne", no);
 		return vo;
 	}
 
 	@Override
 	public int update(BoardVo boardVo) {
-		int updatedCount = sqlSession.update("board.update",boardVo);
-		return updatedCount;
+		return sqlSession.update("board.update", boardVo);
+	}
+	
+	@Override
+	public Long updateHit(Long hit) {
+		return (long) sqlSession.update("board.updateHit", hit);
 	}
 
-
 	@Override
-	public int delete(BoardVo boardVo) {
-		int deletedCount = sqlSession.delete("board.delet", boardVo);
-		return deletedCount;
+	public void delete(Long no) {
+		sqlSession.delete("board.delete", no);
 	}
 
 }

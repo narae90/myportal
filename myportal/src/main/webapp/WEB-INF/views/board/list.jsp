@@ -23,27 +23,28 @@
 	<h1>게시판</h1>		
 	<table border="1" width="640">
 		<tr>
-			<td colspan="6"><h3>게시판</h3></td>
+			<td colspan="6" style='text-align: center'><h3>게시판</h3></td>
 		</tr>
 		<tr>
-			<th>번호</th>
-			<th>제목</th>
-			<th>글쓴이</th>
-			<th>조회수</th>
-			<th>작성일</th>
-			<th>&nbsp;</th>
+			<th style='text-align: center'>번호</th>
+			<th style='text-align: center'>제목</th>
+			<th style='text-align: center'>글쓴이</th>
+			<th style='text-align: center'>조회수</th>
+			<th style='text-align: center'>작성일</th>
+			<th style='text-align: center'>&nbsp;</th>
 		</tr>
 		
 		<!-- 게시물 Loop -->
 		<c:forEach items="${list }" var="vo">
 		<tr>
-			<td>${vo.no}</td>
-			<td><a href="<c:url value="/board/view/${vo.no }" />">${vo.title }</a></td>
-			<td>${vo.userName }</td>
-			<td>${vo.hit }</td>
-			<td>${vo.regDate }</td>
-			<td>
-				<a href="<c:url value="/board/delete/${vo.no }" />">삭제</a>
+			<td style='text-align: center'>${vo.no}</td>
+			<td style='text-align: center'><a href="<c:url value="/board/view/${ vo.no }"/>">${ vo.title }</a></td>			
+			<td style='text-align: center'>${vo.userName }</td>
+			<td style='text-align: center'>${vo.hit }</td>
+			<td style='text-align: center'>${vo.regDate }</td>
+			<td style='text-align: center'>
+				<a href="<c:url value="/board/delete/${vo.no}" /> ">삭제</a>
+				
 			</td>
 		</tr>
 		</c:forEach>

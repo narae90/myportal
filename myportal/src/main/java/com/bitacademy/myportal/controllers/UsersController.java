@@ -125,6 +125,9 @@ public class UsersController {
 		}
 	}
 	
+
+	
+	
 	//	로그아웃
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
 	public String logout(HttpSession session) {

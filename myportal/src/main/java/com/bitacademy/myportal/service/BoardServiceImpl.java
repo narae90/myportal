@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 
 import com.bitacademy.myportal.repository.BoardDao;
 import com.bitacademy.myportal.repository.BoardVo;
-import com.bitacademy.myportal.repository.GuestbookVo;
+
 @Service
 public class BoardServiceImpl implements BoardService {
+
 	@Autowired
 	private BoardDao boardDaoImpl;
-	
 	@Override
 	public List<BoardVo> getList() {
 		List<BoardVo> list = boardDaoImpl.selectAll();
@@ -20,10 +20,11 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public BoardVo getContent(Long no) {
-		BoardVo vo = boardDaoImpl.getContent(no);
+	public BoardVo view(Long no) {
+		BoardVo vo = boardDaoImpl.view(no);
 		return vo;
 	}
+	
 
 	@Override
 	public boolean write(BoardVo vo) {
@@ -33,14 +34,18 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public boolean update(BoardVo vo) {
-		int updatedCount =  boardDaoImpl.update(vo);
+		int updatedCount = boardDaoImpl.update(vo);
 		return 1 == updatedCount;
 	}
 	
 	@Override
-	public boolean delete(BoardVo vo) {
-		int deletedCount = boardDaoImpl.delete(vo);
-		return 1 == deletedCount;
+	public void updateHit(Long hit) {
+		boardDaoImpl.updateHit(hit);
+	}
+	
+	@Override
+	public void delete(Long no) {
+		boardDaoImpl.delete(no);
 	}
 
 }

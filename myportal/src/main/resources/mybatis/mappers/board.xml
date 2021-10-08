@@ -34,36 +34,36 @@
 	</select>
 	
 		<!-- 게시물 보기 -->
-	<select id="getCount" parameterType="long" resultType="boardVo">
-	
-	SELECT * FROM board 
-	WHERE no= #{no}
-	
+	<select id="selectOne" parameterType="long" resultType="boardVo">
+	SELECT 
+	    no,
+	    title,
+	    content,
+	    reg_date as regDate,
+	    user_no as userNo
+	FROM board 
+	WHERE no = #{no}
 	</select>
 	
 	<!-- 게시물 hit 수 증가 -->
-	<update id="HitCount" parameterType="long">
-		
+	<update id="updateHit" parameterType="long">
 		UPDATE board
-		SET hitCount = hitCount + 1
-		WHERE no = #{value}	
-		
+		SET hit = hit + 1
+		WHERE no = #{no}
 	</update>
 	
 	<!-- 게시물 Upadate  -->
 	<update id="update" parameterType="boardVo">
-		
-			UPDATE board
-			SET title=#{title}, 
-			content=#{content}
-			WHERE no = #{no}
-		
+	UPDATE board
+	SET title = #{title}, 
+	content = #{content}
+	WHERE no = #{no}
 	</update>
 	
 	
-	<delete id="delete">
-	DELETE FROM board
-	WHERE no= #{no} 
+	<delete id="delete" parameterType="long">
+		DELETE FROM board
+		WHERE no = #{no}
 	</delete>
 	
 

@@ -7,12 +7,12 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>회원 수정</title>
+	<title>회원 가입폼</title>
 	<script src="<c:url value="/javascript/jquery/jquery-3.6.0.js" />"></script>
 	<script src="<c:url value="/javascript/users.js" />"></script>
 </head>
 <body>
-	<h1>회원 수정</h1>
+	<h1>회원 가입</h1>
 	
 	<!-- form
 		id="join-form"
@@ -22,7 +22,7 @@
 		-->
 	<form:form
 		modelAttribute="userVo"
-		id="join-form"
+		id="update-form"
 		name="registerForm" 
 		action="${pageContext.servletContext.contextPath }/users/join"
 		method="POST">

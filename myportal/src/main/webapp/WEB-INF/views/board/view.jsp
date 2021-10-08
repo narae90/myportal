@@ -19,31 +19,33 @@
 		<jsp:include page="/WEB-INF/views/includes/navigation.jsp" />
 		<div id="wrapper">
 			<div id="content">
-	
+	<h1>상세보기</h1>
 	<table border="1" width="640">
 		<tr>
-			<td colspan="2"><h3>게시판</h3></td>
+			<td colspan="2"><h3 style='text-align: center'>게시판</h3></td>
 		</tr>
 		<tr>
-			<th colspan="2">글보기</th>
+			<th colspan="2" style='text-align: center'>글보기</th>
 		</tr>
 		<tr>
-			<td>제목</td>
-			<td>${vo.title }</td>
+			<td style='text-align: center' width='50px'>제목</td>
+			<td style='text-align: center'>${vo.getTitle() }</td>
 		</tr>
 		<tr>
-			<td>내용</td>
+			<td style='text-align: center'>내용</td>
 			<td>
-				<div>
-					${vo.content }
+				<div style='text-align: center'>
+					${vo.getContent() }
 				</div>
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2">
-				<a href="<c:url value="/board" />">글목록</a>
-				<a href="<c:url value="/board/modufy/${vo.no }"/>">글수정</a>
-			</td>
+			<td colspan="2" style='text-align: center' >
+				<a href="<c:url value="/board/list"/>">글목록</a>					
+				<a href="<c:url value="/board/update/${vo.no }"/>">글수정</a>
+				<a href="<c:url value="/board/delete/${vo.no}" /> ">삭제</a>
+					
+			
 		</tr>
 	</table>
 	
